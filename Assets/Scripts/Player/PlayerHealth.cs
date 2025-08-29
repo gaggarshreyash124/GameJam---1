@@ -9,7 +9,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        GameData.Instance.PlayerStats.CurrentHealth -= damage;
+        GameData.Instance.PlayerStats.CurrentHealth -= (damage - (GameData.Instance.PlayerStats.Defence / 100));
 
         if (GameData.Instance.PlayerStats.CurrentHealth <= 0 && !isDead)
         {

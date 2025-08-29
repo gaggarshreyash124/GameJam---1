@@ -4,19 +4,26 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    
+    public Enemy EnemyData;
     public Transform DamagePopupTransform;
     public DamagePopup DamagePopup;
 
-   
+    
+     void Update()
+    {
+        if (Input.GetKeyDown("k"))
+        {
+            TakeDamage(10);
+        }
+    }
 
     public void TakeDamage(float damage)
     {
-        GameData.Instance.EnemyStats.CurrentHealth -= damage;
+        EnemyData.CurrentHealth -= damage;
         DamagePopup.ChangeText(damage);
         Instantiate(DamagePopupTransform, transform.position, Quaternion.identity);
 
-        if (GameData.Instance.EnemyStats.CurrentHealth <= 0)
+        if (EnemyData.CurrentHealth <= 0)
         {
             Die();
         }
@@ -24,15 +31,15 @@ public class EnemyHealth : MonoBehaviour
 
     public void Heal(int amount)
     {
-        GameData.Instance.EnemyStats.CurrentHealth += amount;
-        if (GameData.Instance.EnemyStats.CurrentHealth > GameData.Instance.EnemyStats.MaxHealth)
+        EnemyData.CurrentHealth += amount;
+        if (EnemyData.CurrentHealth > EnemyData.MaxHealth)
         {
-            GameData.Instance.EnemyStats.CurrentHealth = GameData.Instance.EnemyStats.MaxHealth;
+            EnemyData.CurrentHealth = EnemyData.MaxHealth;
         }
     }
 
     private void Die()
     {
-        // Implementation for enemy death
+        Destroy(gameObject, 2f);
     }
 }

@@ -6,8 +6,8 @@ using UnityEngine;
 public class GameData : MonoBehaviour
 {
     public static GameData Instance;
-    public EnemyStats EnemyStats;
-    public PlayerStats PlayerStats;
+    public PlayerData PlayerStats;
+    
 
     public int TowerCleared = 0;
     private float CurrentDifficulty = 1;
@@ -17,8 +17,7 @@ public class GameData : MonoBehaviour
 
     public void Awake()
     {
-        EnemyStats = new EnemyStats();
-        PlayerStats = new PlayerStats();
+        
 
         if (Instance == null)
         {

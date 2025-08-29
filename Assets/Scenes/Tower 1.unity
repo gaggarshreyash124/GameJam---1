@@ -246,7 +246,7 @@ Transform:
   m_GameObject: {fileID: 25848394}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 738.2981, y: 769.84, z: 5}
+  m_LocalPosition: {x: 738.2981, y: 771.16, z: 5}
   m_LocalScale: {x: 42.24539, y: 1.9476, z: 1.9476}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -277,7 +277,7 @@ Transform:
   m_GameObject: {fileID: 111874825}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 736.8151, y: 764.1383, z: -0.07300986}
+  m_LocalPosition: {x: 736.8151, y: 762.4, z: -0.07300986}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -414,7 +414,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7.04
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -439,7 +439,7 @@ Transform:
   m_GameObject: {fileID: 647497963}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 740, y: 763.3, z: -10}
+  m_LocalPosition: {x: 743.17, y: 764.91, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -454,7 +454,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 844203851}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -505,9 +505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0240a92cab9c494a89e32ed2ea62f4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyStats:
-    MaxHealth: 0
-    CurrentHealth: 0
+  PlayerStats: {fileID: 11400000, guid: a3870f8195f52d94482971bd82f5a9e1, type: 2}
   TowerCleared: 0
 --- !u!4 &968787854
 Transform:
@@ -603,7 +601,7 @@ Transform:
   m_GameObject: {fileID: 1597359967}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 738.2981, y: 760.15, z: 5}
+  m_LocalPosition: {x: 738.2981, y: 758.45, z: 5}
   m_LocalScale: {x: 42.24539, y: 1.9476, z: 1.9476}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -699,10 +697,10 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!70 &1904142208
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -798,8 +796,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1904142206}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.8151245, y: -0.2783203, z: 0.07300986}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.8151245, y: -1.11, z: 0.07300986}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -817,6 +815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbd9d97dac0254949ac6bf72204fc221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyData: {fileID: 11400000, guid: 0a5e2ad3280bb8d41902a1d6ef6bf425, type: 2}
   DamagePopupTransform: {fileID: 6584838362501785601, guid: ff83a1d6faf99d542914f0ddb61aa068, type: 3}
   DamagePopup: {fileID: 8262088131064884966, guid: ff83a1d6faf99d542914f0ddb61aa068, type: 3}
 --- !u!114 &1904142212
@@ -831,6 +830,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e98515504bd96a4f84ff75d0c10cf17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyData: {fileID: 0}
+  AttackCooldown: 1
 --- !u!114 &1904142213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -843,7 +844,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92162116360a7a743a83a1a394163420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  EnemyData: {fileID: 11400000, guid: 0a5e2ad3280bb8d41902a1d6ef6bf425, type: 2}
+  Alert: {fileID: 1530792014634250618, guid: da4ef033215f07940b60aa97a6344840, type: 3}
 --- !u!1 &2045072980
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,7 +859,7 @@ GameObject:
   - component: {fileID: 2045072983}
   - component: {fileID: 2045072982}
   - component: {fileID: 2045072981}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -876,11 +878,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 580a1d0eea0a9e54d84cea3f1c486dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 8
   groundCheck: {fileID: 844203851}
+  SkillTime: 0
+  Active: 0
 --- !u!70 &2045072982
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -942,7 +942,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &2045072984
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1004,7 +1004,7 @@ Transform:
   m_GameObject: {fileID: 2045072980}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 749, y: 763.02, z: 0}
+  m_LocalPosition: {x: 748.64, y: 762.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
